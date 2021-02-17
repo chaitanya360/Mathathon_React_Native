@@ -63,7 +63,6 @@ const styles = StyleSheet.create({
     width: 500,
     height: 500,
     marginLeft: '4%',
-    // backgroundColor: 'red',
     top: '5%',
     position: 'absolute',
   },
@@ -86,12 +85,12 @@ const styles = StyleSheet.create({
   high_score: {
     color: colors.medium,
     fontSize: 18,
-    fontFamily: 'Andika_400Regular',
+    fontFamily: 'Andika-Regular',
     paddingLeft: 2,
   },
   title: {
     fontSize: 50,
-    fontFamily: 'Andika_400Regular',
+    fontFamily: 'Andika-Regular',
     color: colors.white,
     margin: '4%',
     top: 10,
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
   },
   title_shadow: {
     fontSize: 50,
-    fontFamily: 'Andika_400Regular',
+    fontFamily: 'Andika-Regular',
     color: colors.medium,
     margin: '4%',
     top: 10,

@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
   high_score: {
     color: colors.medium,
     fontSize: 18,
-    fontFamily: 'Andika_400Regular',
+    fontFamily: 'Andika-Regular',
   },
 
   score_box: {
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
   },
   score: {
     fontSize: 28,
-    fontFamily: 'Andika_400Regular',
+    fontFamily: 'Andika-Regular',
   },
 });
 

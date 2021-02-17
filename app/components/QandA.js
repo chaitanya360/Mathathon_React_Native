@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from "react";
-import { Dimensions, StyleSheet, Text, Vibration, View } from "react-native";
-import AnimatedView from "../animations/AnimatedView";
-import QuestionHolder from "./QuestionHolder";
-import TimerHolder from "./TimerHolder";
-import Options from "./Options";
-import GameOverStats from "./GameOverStats";
-import { useNavigation } from "@react-navigation/native";
-import Starting from "./Starting";
-import { useContext } from "react";
-import { Context } from "../context/settingsContext";
-import colors from "../config/colors";
-import storage from "../utility/storage";
+import React, {useEffect, useState} from 'react';
+import {Dimensions, StyleSheet, Text, Vibration, View} from 'react-native';
+import AnimatedView from '../animations/AnimatedView';
+import QuestionHolder from './QuestionHolder';
+import TimerHolder from './TimerHolder';
+import Options from './Options';
+import GameOverStats from './GameOverStats';
+import {useNavigation} from '@react-navigation/native';
+import Starting from './Starting';
+import {useContext} from 'react';
+import {Context} from '../context/settingsContext';
+import colors from '../config/colors';
+import storage from '../utility/storage';
 
 let timerId = false;
 
@@ -35,26 +35,26 @@ function QandA() {
   const handleNextQuestion = () => {
     clearTimeout(timerId);
     timerId = setTimeout(() => handleGameOver(0), time + 150);
-    const operators = ["*", "+", "-"];
+    const operators = ['*', '+', '-'];
     const operator = operators[parseInt(Math.random() * 10) % operators.length];
 
     const num1 =
-      operator === "*"
+      operator === '*'
         ? parseInt(Math.random() * 10).toString()
         : parseInt((Math.random() * 100) % 51).toString();
     const num2 =
-      operator === "*"
+      operator === '*'
         ? parseInt(Math.random() * 10).toString()
         : parseInt((Math.random() * 100) % 51).toString();
 
-    const question = num1 + " " + operator + " " + num2;
+    const question = num1 + ' ' + operator + ' ' + num2;
     const answer = eval(question);
 
     const random_options = [answer, answer + 3, answer - 6].sort(
-      () => Math.random() - 0.5
+      () => Math.random() - 0.5,
     );
 
-    setCurrentQuestion(question.replace("*", "x"));
+    setCurrentQuestion(question.replace('*', 'x'));
     setCurrentAnswer(answer);
     setOptions(random_options);
   };
@@ -95,7 +95,7 @@ function QandA() {
     if (score > highScore) {
       setHighScore(score);
       setNewHighScore(true);
-      await storage.store("high_score", score.toString());
+      await storage.store('high_score', score.toString());
     }
   };
 
@@ -103,7 +103,7 @@ function QandA() {
     if (settings.vibration) Vibration.vibrate(200, false);
     setGameOver(true);
     setGameOverMode(mode);
-    setCurrentQuestion("Game Over");
+    setCurrentQuestion('Game Over');
     checkForHighScore();
     if (mode && timerRef) {
       timerRef.reAnimate(99, 100, 100);
@@ -111,7 +111,7 @@ function QandA() {
   };
 
   const getHighScore = async () => {
-    const result = await storage.get("high_score");
+    const result = await storage.get('high_score');
     if (result) {
       setHighScore(parseInt(result));
     }
@@ -125,16 +125,15 @@ function QandA() {
 
   return !starting ? (
     <View style={[styles.container]}>
-      <View style={[styles.score_container, { opacity: gameOver ? 0 : 1 }]}>
+      <View style={[styles.score_container, {opacity: gameOver ? 0 : 1}]}>
         <Text style={styles.score}>{score}</Text>
       </View>
       <TimerHolder
         setTimerRef={setTimerRef}
         time={time}
         gameOver={gameOver}
-        setGameOver={setGameOver}
-      >
-        <View style={{ width: "100%" }}>
+        setGameOver={setGameOver}>
+        <View style={{width: '100%'}}>
           <QuestionHolder
             question={currentQuestion}
             gameOver={gameOver}
@@ -143,9 +142,9 @@ function QandA() {
         </View>
       </TimerHolder>
       {gameOver ? (
-        <AnimatedView style={{ zIndex: 3 }}>
+        <AnimatedView style={{zIndex: 3}}>
           <GameOverStats
-            onHomePressed={() => navigation.navigate("home", { highScore })}
+            onHomePressed={() => navigation.navigate('home', {highScore})}
             onRestartPressed={() => handleGameRestart()}
             score={score}
             highScore={highScore}
@@ -170,18 +169,18 @@ function QandA() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
+    alignItems: 'center',
     zIndex: 0,
   },
   optionsContainer: {
-    marginTop: "15%",
+    marginTop: '15%',
   },
   overlay: {
     top: -100,
     flex: 1,
-    position: "absolute",
-    width: "100%",
-    height: Dimensions.get("screen").height + 300,
+    position: 'absolute',
+    width: '100%',
+    height: Dimensions.get('screen').height + 300,
     opacity: 0.35,
     backgroundColor: colors.dark,
     zIndex: 1,
@@ -189,11 +188,11 @@ const styles = StyleSheet.create({
   score: {
     color: colors.medium,
     fontSize: 30,
-    fontFamily: "Andika_400Regular",
+    fontFamily: 'Andika-Regular',
   },
 
   score_container: {
-    marginBottom: "5%",
+    marginBottom: '5%',
   },
 });
 

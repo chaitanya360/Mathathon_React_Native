@@ -1,16 +1,15 @@
-import React from "react";
-import { StyleSheet, Text, TouchableHighlight, View } from "react-native";
-import AnimatedView from "../animations/AnimatedView";
-import colors from "../config/colors";
+import React from 'react';
+import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
+import AnimatedView from '../animations/AnimatedView';
+import colors from '../config/colors';
 
-function Option({ option, onPress }) {
+function Option({option, onPress}) {
   return (
     <TouchableHighlight
       style={styles.option}
       onPress={() => onPress(option)}
       activeOpacity={0.1}
-      underlayColor="rgba(100,2,3,0.3)"
-    >
+      underlayColor="rgba(100,2,3,0.3)">
       <AnimatedView change={option}>
         <Text style={styles.text}>{option}</Text>
       </AnimatedView>
@@ -27,13 +26,13 @@ const styles = StyleSheet.create({
     borderRadius: 30,
     borderColor: colors.dark,
     backgroundColor: colors.medium,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
-    color: "white",
+    color: 'white',
     fontSize: 22,
-    fontFamily: "Andika_400Regular",
+    fontFamily: 'Andika-Regular',
   },
 });
 
