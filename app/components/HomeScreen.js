@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   StyleSheet,
   Text,
@@ -14,6 +14,7 @@ import {useState} from 'react';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import storage from '../utility/storage';
 import LottieView from 'lottie-react-native';
+import SplashScreen from 'react-native-splash-screen';
 
 function HomeScreen({navigation}) {
   const [highScore, setHighScore] = useState(0);
@@ -27,6 +28,8 @@ function HomeScreen({navigation}) {
   };
 
   getHighScore();
+
+  useEffect(() => SplashScreen.hide(), []);
 
   return (
     <View style={styles.container}>
@@ -43,7 +46,6 @@ function HomeScreen({navigation}) {
       <View style={styles.play_button}>
         <TouchableOpacity
           onPress={() => {
-            console.log('this is being pressed');
             if (settings.vibration) Vibration.vibrate(50, false);
             navigation.navigate('game');
           }}>
@@ -62,7 +64,7 @@ const styles = StyleSheet.create({
   anim: {
     width: 500,
     height: 500,
-    marginLeft: '4%',
+    marginLeft: '3%',
     top: '5%',
     position: 'absolute',
   },

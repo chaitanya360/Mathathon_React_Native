@@ -1,14 +1,20 @@
-import React from "react";
-import { View } from "react-native";
-import Background from "./Background";
-import QandA from "./QandA";
+import React from 'react';
+import {View} from 'react-native';
+import Background from './Background';
+import QandA from './QandA';
 
 function GameScreen() {
   return (
     //anim's background is determined in <background>
     <>
       <Background />
-      <View style={{ paddingTop: "8%", flex: 1 }}>
+      <View
+        style={{
+          flex: 1,
+          paddingTop: '10%',
+          height: '100%',
+          alignItems: 'center',
+        }}>
         <QandA />
       </View>
     </>

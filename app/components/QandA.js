@@ -168,7 +168,7 @@ function QandA() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    // flex: 1,
     alignItems: 'center',
     zIndex: 0,
   },
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     marginTop: '15%',
   },
   overlay: {
-    top: -100,
+    top: -200,
     flex: 1,
     position: 'absolute',
     width: '100%',
