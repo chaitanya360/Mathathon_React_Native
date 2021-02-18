@@ -1,4 +1,4 @@
-package com.mathathon;
+package com.cjapps.mathathon;
 
 import com.facebook.react.ReactActivity;
 import org.devio.rn.splashscreen.SplashScreen; // import this

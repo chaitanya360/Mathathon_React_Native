@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
   score_box: {
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
+    margin: 5,
   },
   score: {
     fontSize: 28,

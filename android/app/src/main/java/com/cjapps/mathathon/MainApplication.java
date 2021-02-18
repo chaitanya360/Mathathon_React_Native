@@ -1,4 +1,4 @@
-package com.mathathon;
+package com.cjapps.mathathon;
 
 import android.app.Application;
 import android.content.Context;

@@ -21,8 +21,8 @@ const styles = StyleSheet.create({
   container: {},
   option: {
     borderWidth: 2,
-    width: 80,
-    height: 60,
+    width: 85,
+    height: 65,
     borderRadius: 30,
     borderColor: colors.dark,
     backgroundColor: colors.medium,
