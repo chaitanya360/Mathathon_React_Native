@@ -142,7 +142,7 @@ function QandA() {
         </View>
       </TimerHolder>
       {gameOver ? (
-        <AnimatedView style={{zIndex: 3}}>
+        <AnimatedView style={styles.gameOverContianer}>
           <GameOverStats
             onHomePressed={() => navigation.navigate('home', {highScore})}
             onRestartPressed={() => handleGameRestart()}
@@ -168,7 +168,7 @@ function QandA() {
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    height: '100%',
     alignItems: 'center',
     zIndex: 0,
   },
@@ -189,6 +189,11 @@ const styles = StyleSheet.create({
     color: colors.medium,
     fontSize: 30,
     fontFamily: 'Andika-Regular',
+  },
+  gameOverContianer: {
+    zIndex: 3,
+    position: 'absolute',
+    bottom: '5%',
   },
 
   score_container: {
