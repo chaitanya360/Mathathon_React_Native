@@ -17,7 +17,14 @@ function QuestionHolder({question, gameOver, mode}) {
       <AnimatedView
         change={question}
         style={{justifyContent: 'center', alignItems: 'center'}}>
-        <Text style={[styles.question, {fontSize: gameOver ? 32 : 50}]}>
+        <Text
+          style={[
+            styles.question,
+            {
+              fontSize: gameOver ? 32 : 50,
+              color: gameOver ? 'red' : colors.white,
+            },
+          ]}>
           {question}
         </Text>
         {gameOver && GameOver()}

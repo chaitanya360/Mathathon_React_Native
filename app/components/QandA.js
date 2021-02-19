@@ -29,23 +29,31 @@ function QandA() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [newHighScore, setNewHighScore] = useState(false);
-
+  let count = 0;
   //random question and it's answer is generate here.
 
   const handleNextQuestion = () => {
+    count++;
     clearTimeout(timerId);
     timerId = setTimeout(() => handleGameOver(0), time + 150);
     const operators = ['*', '+', '-'];
     const operator = operators[parseInt(Math.random() * 10) % operators.length];
 
-    const num1 =
-      operator === '*'
-        ? parseInt(Math.random() * 10).toString()
-        : parseInt((Math.random() * 100) % 51).toString();
-    const num2 =
-      operator === '*'
-        ? parseInt(Math.random() * 10).toString()
-        : parseInt((Math.random() * 100) % 51).toString();
+    let num1, num2;
+
+    if (count < 10) {
+      num1 = parseInt(Math.random() * 10).toString();
+      num2 = parseInt(Math.random() * 10).toString();
+    } else {
+      num1 =
+        operator === '*'
+          ? parseInt(Math.random() * 10).toString()
+          : parseInt((Math.random() * 100) % 51).toString();
+      num2 =
+        operator === '*'
+          ? parseInt(Math.random() * 10).toString()
+          : parseInt((Math.random() * 100) % 51).toString();
+    }
 
     const question = num1 + ' ' + operator + ' ' + num2;
     const answer = eval(question);
@@ -78,6 +86,7 @@ function QandA() {
   };
 
   const handleGameRestart = () => {
+    count = 0;
     clearTimeout(timerId);
     restartTimer();
     setScore(0);
